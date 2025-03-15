@@ -1,6 +1,6 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/ABKAM2023/Anti-Afk/total?style=for-the-badge)
 
-**Anti-Afk** - автоматически убивает, кикает или переводит в наблюдатели игроков, находящихся в режиме AFK.
+**Anti-Afk** - автоматически убивает, кикает или переводит в наблюдатели игроков, находящихся в AFK.
 
 ## Требования
 [Utils](https://github.com/Pisex/cs2-menus/releases)
