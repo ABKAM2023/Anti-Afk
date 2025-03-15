@@ -1,0 +1,38 @@
+"Phrases"
+{
+    "AFK_Prefix"
+    {
+        "en"        "{RED}[AFK]{DEFAULT}"
+        "ru"        "{RED}[AFK]{DEFAULT}"        
+    }
+
+    "AFK_CountdownKick"
+    {
+        "en"        "You are idle, and in {RED}%d {DEFAULT}seconds you will be kicked for AFK."
+        "ru"        "Вы не двигаетесь, и через {RED}%d {DEFAULT}секунд вас кикнут за AFK."        
+    }
+
+    "AFK_CountdownSpec"
+    {
+        "en"        "You are idle, and in {RED}%d {DEFAULT}seconds you will be moved to spectators."
+        "ru"        "Вы не двигаетесь, и через {RED}%d {DEFAULT}секунд вас переведут в наблюдатели."        
+    }
+
+    "AFK_CountdownKill"
+    {
+        "en"        "You are idle, and in {RED}%d {DEFAULT}seconds you will be killed for AFK."
+        "ru"        "Вы не двигаетесь, и через {RED}%d {DEFAULT}секунд вас убьют за AFK."        
+    }
+
+    "AFK_WarningKill"
+    {
+        "en"        "Warning {RED}%d{DEFAULT}/{RED}%d{DEFAULT}: you were killed for AFK."
+        "ru"        "Предупреждение {RED}%d{DEFAULT}/{RED}%d{DEFAULT}: вас убили за AFK."        
+    }
+
+    "AFK_SpecFinal"
+    {
+        "en"        "You have been moved to spectators due to AFK."
+        "ru"        "Вы были переведены в наблюдатели из-за AFK."        
+    }
+}
