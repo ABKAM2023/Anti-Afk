@@ -14,9 +14,8 @@
 #include <utlstring.h>
 #include <KeyValues.h>
 #include "CCSPlayerController.h"
-#include "CBaseModelEntity.h" 
+#include "CGameRules.h"
 #include "include/menus.h"
-#include "include/cookies.h"
 
 class AntiAfk final : public ISmmPlugin, public IMetamodListener
 {
@@ -24,7 +23,6 @@ public:
 	bool Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late);
 	bool Unload(char* error, size_t maxlen);
 	void AllPluginsLoaded();
-    void CheckPlayerAimMovement();
 private:
 	const char* GetAuthor();
 	const char* GetName();
@@ -34,7 +32,6 @@ private:
 	const char* GetVersion();
 	const char* GetDate();
 	const char* GetLogTag();
-    CTimer* m_pAimTimer = nullptr;
 };
 
 #endif //_INCLUDE_METAMOD_SOURCE_STUB_PLUGIN_H_

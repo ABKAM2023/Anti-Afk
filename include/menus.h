@@ -13,6 +13,9 @@ class CEntitySystem;
 class CGlobalVars;
 class IGameEvent;
 class IGameEventManager2;
+struct CTakeDamageInfoContainer;
+class CTakeDamageInfo;
+class IGameEventListener2;
 
 /////////////////////////////////////////////////////////////////
 ///////////////////////      PLAYERS     //////////////////////////
@@ -46,6 +49,12 @@ public:
     virtual void EmitSound(std::vector<int> vPlayers, CEntityIndex ent, std::string sound_name, int pitch, float volume) = 0;
 	virtual void EmitSound(int iSlot, CEntityIndex ent, std::string sound_name, int pitch, float volume) = 0;
 	virtual void StopSoundEvent(int iSlot, const char* sound_name) = 0;
+    virtual IGameEventListener2* GetLegacyGameEventListener(int iSlot) = 0;
+    virtual int FindPlayer(uint64 iSteamID64) = 0;
+    virtual int FindPlayer(const CSteamID* steamID) = 0;
+    virtual int FindPlayer(const char* szName) = 0;
+    virtual trace_info_t RayTrace(int iSlot) = 0;
+    virtual bool UseClientCommand(int iSlot, const char* szCommand) = 0;
 };
 
 /////////////////////////////////////////////////////////////////
@@ -63,8 +72,9 @@ typedef std::function<bool(int iSlot, const char* szContent, bool bMute, bool bT
 typedef std::function<void(const char* szName, IGameEvent* pEvent, bool bDontBroadcast)> EventCallback;
 typedef std::function<void()> StartupCallback;
 typedef std::function<bool(int iSlot, CTakeDamageInfoContainer *&pInfoContainer)> OnTakeDamageCallback;
-typedef std::function<bool(int iSlot, CTakeDamageInfo &pInfo)> OnTakeDamagePreCallback;
+typedef std::function<bool(int iSlot, CTakeDamageInfo *pInfo)> OnTakeDamagePreCallback;
 typedef std::function<bool(int iSlot)> OnHearingClientCallback;
+typedef std::function<void(const char* szMap)> MapStartCallback;
 
 class IUtilsApi
 {
@@ -116,6 +126,10 @@ public:
     virtual void CollisionRulesChanged(CBaseEntity* pEnt) = 0;
     virtual void TeleportEntity(CBaseEntity* pEnt, const Vector *position, const QAngle *angles, const Vector *velocity) = 0;
     virtual void HookIsHearingClient(SourceMM::PluginId id, OnHearingClientCallback callback) = 0;
+    virtual const char* GetVersion() = 0;
+    
+    virtual void MapEndHook(SourceMM::PluginId id, StartupCallback fn) = 0;
+    virtual void MapStartHook(SourceMM::PluginId id, MapStartCallback fn) = 0;
 };
 
 /////////////////////////////////////////////////////////////////
